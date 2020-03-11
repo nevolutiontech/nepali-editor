@@ -1,11 +1,7 @@
 function chooseColor() {
   var mycolor = document.getElementById("myColor").value;
   document.execCommand("foreColor", false, mycolor);
-}
 
-function changeFont() {
-  var myFont = document.getElementById("input-font").value;
-  document.execCommand("fontName", false, myFont);
 }
 
 function changeSize() {
@@ -14,12 +10,41 @@ function changeSize() {
 }
 
 function checkDiv() {
-  var editorText = document.getElementById("editor1").innerHTML;
+  var editorText = document.getElementById("editor").innerHTML;
   if (editorText === "") {
-    document.getElementById("editor1").style.border = "5px solid red";
+    document.getElementById("editor").style.border = "5px solid red";
   }
 }
 
 function removeBorder() {
-  document.getElementById("editor1").style.border = "1px solid transparent";
+  document.getElementById("editor").style.border = "1px solid transparent";
+}
+
+function changeStyle() {
+  const editor = document.getElementById("editor")
+  if (editor.style.fontStyle === "normal") {
+    editor.style.fontStyle = "italic";
+  } else {
+    editor.style.fontStyle = "normal";
+  }
+}
+
+function changeBold() {
+  const editor = document.getElementById("editor")
+  if (editor.style.fontWeight == "bolder" ) {
+    editor.style.fontWeight = "normal";
+  } else {
+    editor.style.fontWeight = "bolder";
+  }
+  
+}
+
+function underlineText() {
+  const editor = document.getElementById("editor")
+  if (editor.style.textDecoration == "underline" ) {
+    editor.style.textDecoration = "none";
+  } else {
+    editor.style.textDecoration = "underline";
+  }
+  
 }
