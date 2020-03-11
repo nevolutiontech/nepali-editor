@@ -4,86 +4,67 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unicode Converter</title>
+    <title>Nepali Editor</title>
 
-    <!--Unicode Integeration-->
+
     <script
       language="javascript"
       type="text/javascript"
-      src="unicode.js"
+      src="nepali_unicode.js"
     ></script>
     <script src="./index.js"></script>
+
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body style="-webkit-app-region: drag">
     <div class="heading">
-      <h1>Unicode Converter</h1>
+      <h1>Nepali Editor</h1>
     </div>
     <div id="container">
-      <fieldset>
+      <div class="flex-container">
         <button
           class="fontStyle italic"
-          onclick="document.querySelector('#editor1').italics();"
+          onclick="changeStyle()"
           title="Italicize Highlighted Text"
         ></button>
         <button
           class="fontStyle bold"
-          onclick="document.execCommand( 'bold',false,null);"
+          onclick="changeBold()"
           title="Bold Highlighted Text"
         ></button>
         <button
           class="fontStyle underline"
-          onclick="document.execCommand( 'underline',false,null);"
+          onclick="underlineText()"
         ></button>
-        <!-- <select id="input-font" class="input" onchange="changeFont (this);">
-          <option value="Arial">Arial</option>
-          <option value="Helvetica">Helvetica</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Sans serif">Sans serif</option>
-          <option value="Courier New">Courier New</option>
-          <option value="Verdana">Verdana</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Palatino">Palatino</option>
-          <option value="Garamond">Garamond</option>
-          <option value="Comic Sans MS">Comic Sans MS</option>
-          <option value="Arial Black">Arial Black</option>
-          <option value="Tahoma">Tahoma</option>
-          <option value="Comic Sans MS">Comic Sans MS</option>
-        </select> -->
-        <button
-          class="fontStyle strikethrough"
-          onclick="document.execCommand( 'strikethrough',false,null);"
-        >
-          <strikethrough></strikethrough>
-        </button>
+
         <button
           class="fontStyle align-left"
-          onclick="document.execCommand( 'justifyLeft',false,null);"
+          onclick="document.execCommand('justifyLeft',false,null);"
         >
           <justifyLeft></justifyLeft>
         </button>
         <button
           class="fontStyle align-center"
-          onclick="document.execCommand( 'justifyCenter',false,null);"
+          onclick="document.execCommand('justifyCenter',false,null);"
         >
           <justifyCenter></justifyCenter>
         </button>
         <button
           class="fontStyle align-right"
-          onclick="document.execCommand( 'justifyRight',false,null);"
+          onclick="document.execCommand('justifyRight',false,null);"
         >
           <justifyRight></justifyRight>
         </button>
         <button
           class="fontStyle redo-apply"
-          onclick="document.execCommand( 'redo',false,null);"
+          onclick="document.execCommand('redo',false,null);"
         >
           <redo></redo>
         </button>
         <button
           class="fontStyle undo-apply"
-          onclick="document.execCommand( 'undo',false,null);"
+          onclick="document.execCommand('undo',false,null);"
         >
           <undo></undo>
         </button>
@@ -107,54 +88,34 @@
         />
 
         <!-- font size start -->
-        <select id="fontSize" onclick="changeSize()">
+        <!-- <select id="fontSize" onclick="changeSize()">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
           <option value="6">6</option>
-          <option value="7">7</option>
+          <optione value="7">7</option>
           <option value="8">8</option>
-        </select>
+        </select> -->
         <!-- font size end -->
-      </fieldset>
-
-      <!-- <div
-        id="editor1"
-        name="unicodebox"
-        contenteditable="true"
-        data-text="Enter comment...."
-      ></div> -->
+      </div>
+<br/>
+      <div>
       <form name="nepali">
         <textarea
           onkeyup="nepconv();"
           name="unicodebox"
           class="form-control"
-          id="editor1"
+          id="editor"
           placeholder="Write Here..."
           style="-webkit-app-region: no-drag"
         ></textarea>
       </form>
     </div>
+  
 
-    <!-- <script>
-      window.addEventListener("load", function() {
-        const editbox = document.querySelector("#editor1");
-
-        var convertedData = "";
-        console.log("here");
-        editbox.addEventListener("keyup", e => {
-          // and here is how to detect the enter key
-          console.log(editbox.textContent);
-
-          convertedData = nepconv(editbox.textContent);
-          console.log(convertedData);
-
-          // See
-          //https://stackoverflow.com/questions/50080651/replace-string-in-contenteditable-div
-        });
-      });
-    </script> -->
+    </div>
+  
   </body>
 </html>
